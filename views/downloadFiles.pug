@@ -1,0 +1,58 @@
+doctype html
+html(lang='en')
+  head
+    style.
+      div {
+           border: 1px solid #dddddd;
+           text-align: center;
+           padding: 8px;
+      }
+   
+      table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+      }
+      td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+      }
+      tr:nth-child(even) {
+      background-color: #dddddd;
+      }
+    
+    title List Files 
+  body  
+    a(class='button', href='/fileUpload') Uploadfiles
+    div 
+    label(for="") Avilable Files 
+    if(alertmsg !="")
+        label(for="") #{alertmsg}
+    table.table.table-striped
+        tbody
+            tr
+                th ID
+                th fileName
+                th Downlaod key 
+                th DownLoad URL
+            if(savedFiles)
+                each n in savedFiles 
+                    tr
+                        form(method='post', action="/fileDownload")
+                                td 
+                                    label(for="fileid")
+                                    input(type = "text", readonly, name="fileId",value=n.id)
+                                td
+                                    label(for="fileName")
+                                    input(type = "text", readonly,name="fileName",value=n.fileName)
+                                td  
+                                    label(for="uniqueCode") Enter Valid uniqueCode For Download :
+                                    input(type = "text", name="uniqueCode")
+                                td
+                                    button(type="submit" name="Download") Download
+                                    button(type="submit" name="Delete") Delete
+                                    //- a.btn(type='submit',name='fileUrl' value=n.fileUrl) Download
+                                    //- (type='submit', name='fileUrl') Downloadinput
+
+    

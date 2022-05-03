@@ -1,0 +1,26 @@
+html
+   head
+      title New user Registration 
+   body
+      form(action = "/userRegister", method = "POST")
+         div
+            label(for = "UserName") UserName:
+            input(name = "username" )
+         br
+         div
+            label(for = "Name") First Name :
+            input(name = "FName" )
+         br
+
+         div
+            label(for = "LName") Last Name :
+            input(name = "LName" )
+         br
+         div
+            label(for = "Password") Password:
+            input(name = "password" )
+         br
+
+         button(type = "sumbit") Sign Up
+
+

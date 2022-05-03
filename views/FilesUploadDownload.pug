@@ -1,0 +1,38 @@
+doctype html
+html(lang='en')
+  head
+    style.
+      div {
+           border: 1px solid #dddddd;
+           text-align: center;
+           padding: 8px;
+      }
+   
+      table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+      }
+      td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+      }
+      tr:nth-child(even) {
+      background-color: #dddddd;
+      }
+    
+    title ListProducts 
+  body  
+  a(class='button', href='/fileDownload') DownloadFiles
+
+  form(method='post', action="/fileUpload" enctype='multipart/form-data')
+    div
+      input(type='file', name='imageupload')
+      br
+      input(type='submit', name='uploadimage', value='Upload Image')
+      br
+      label(for = "uniqueCode") unique Code (this unique Code is requried at the time of download) : 
+      input(name = "uniqueCode", readonly, value=Math.floor(100000 + Math.random() * 900000))
+      br
+    
